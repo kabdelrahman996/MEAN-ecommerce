@@ -1,0 +1,64 @@
+<div class="alert alert-danger text-center" role="alert" *ngIf="dangerAlert">
+  {{ dangerMessage }}
+</div>
+<div class="register container">
+  <div class="text-center registhead">
+    <h2>Login</h2>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="row d-flex flex-column">
+      <!-- Email -->
+      <div class="mb-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <div class="text-danger" *ngIf="loginForm.get('email')?.touched">
+            <span *ngIf="loginForm.get('email')?.errors?.['required']"
+              >Email is required.</span
+            >
+            <span *ngIf="loginForm.get('email')?.errors?.['email']"
+              >Invalid email format.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <div class="text-danger" *ngIf="loginForm.get('password')?.touched">
+            <span *ngIf="loginForm.get('password')?.errors?.['required']"
+              >Password is required.</span
+            >
+            <span *ngIf="loginForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters long.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="registfoot">
+      <a href="/login" class="text-link">انشاء حساب</a>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loginForm.invalid"
+      >
+        الدخول
+      </button>
+    </div>
+  </form>
+</div>

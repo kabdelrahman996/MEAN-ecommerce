@@ -1,0 +1,42 @@
+.featured-products {
+  background-color: #1b263b;
+  padding: 20px;
+  border-radius: 10px;
+  color: #e0e1dd;
+}
+
+.section-title {
+  color: #e0e1dd;
+  margin: 20px auto;
+}
+
+.product-card {
+  background-color: #415a77;
+  border: none;
+  border-radius: 10px;
+  color: #e0e1dd;
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0;
+  max-height: 350px;
+}
+
+.card-title {
+  color: #e0e1dd;
+}
+
+.card-text {
+  color: #e0e1dd;
+}
+
+.btn-primary {
+  background-color: #778da9;
+  border-color: #778da9;
+}
+
+.btn-primary:hover {
+  background-color: #e0e1dd;
+  color: #1b263b;
+  border-color: #e0e1dd;
+}

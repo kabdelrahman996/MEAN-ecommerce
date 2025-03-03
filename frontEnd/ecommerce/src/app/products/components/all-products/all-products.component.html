@@ -1,0 +1,24 @@
+<div class="container">
+  <!-- Title -->
+  <h2 class="products-title">All Products</h2>
+  <div class="my-2 w-25">
+    <app-select
+      [data]="categories"
+      [title]="'Categories'"
+      (selectedValue)="filterCategory($event)"
+    ></app-select>
+  </div>
+  <!-- Product Grid -->
+  <div class="row" *ngIf="!isLoading">
+    <div
+      *ngFor="let product of products"
+      class="col-md-3 col-sm-6 col-12 mb-4"
+      routerLinkActive="router-link-active"
+    >
+      <app-product [product]="product" (item)="addToCart($event)"></app-product>
+    </div>
+  </div>
+  <div class="text-center w-100" *ngIf="isLoading">
+    <app-spinner></app-spinner>
+  </div>
+</div>

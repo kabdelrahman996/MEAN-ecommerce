@@ -1,0 +1,137 @@
+<div class="alert alert-success text-center" role="alert" *ngIf="successAlert">
+  Account successfuly created!
+</div>
+<div class="register container">
+  <div class="text-center registhead">
+    <h2>Register</h2>
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- Name -->
+      <div class="col-md-6 col-sm-12 mb-3">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+          />
+          <div class="text-danger" *ngIf="registerForm.get('name')?.touched">
+            <span *ngIf="registerForm.get('name')?.errors?.['required']"
+              >Name is required.</span
+            >
+            <span *ngIf="registerForm.get('name')?.errors?.['minlength']">
+              Name must be at least 3 characters long.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6 col-sm-12 mb-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <div class="text-danger" *ngIf="registerForm.get('email')?.touched">
+            <span *ngIf="registerForm.get('email')?.errors?.['required']"
+              >Email is required.</span
+            >
+            <span *ngIf="registerForm.get('email')?.errors?.['email']"
+              >Invalid email format.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="col-md-6 col-sm-12 mb-3">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <div
+            class="text-danger"
+            *ngIf="registerForm.get('password')?.touched"
+          >
+            <span *ngIf="registerForm.get('password')?.errors?.['required']"
+              >Password is required.</span
+            >
+            <span *ngIf="registerForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters long.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="col-md-6 col-sm-12 mb-3">
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirm-password"
+            formControlName="confirmPassword"
+          />
+          <div
+            class="text-danger"
+            *ngIf="registerForm.get('confirmPassword')?.touched"
+          >
+            <span
+              *ngIf="registerForm.get('confirmPassword')?.errors?.['required']"
+              >Confirm Password is required.</span
+            >
+            <span
+              *ngIf="registerForm.get('confirmPassword')?.errors?.['minlength']"
+            >
+              Confirm Password must be at least 6 characters long.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="col-md-6 col-sm-12 mx-auto mb-3">
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            formControlName="phone"
+          />
+          <div class="text-danger" *ngIf="registerForm.get('phone')?.touched">
+            <span *ngIf="registerForm.get('phone')?.errors?.['required']"
+              >Phone number is required.</span
+            >
+            <span *ngIf="registerForm.get('phone')?.errors?.['pattern']">
+              Invalid Egyptian phone number (must start with 010, 011, 012, or
+              015 and be 11 digits long).
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="registfoot">
+      <a href="/login" class="text-link">املك حساب بالفعل ؟</a>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="registerForm.invalid"
+      >
+        انشاء الحساب
+      </button>
+    </div>
+  </form>
+</div>

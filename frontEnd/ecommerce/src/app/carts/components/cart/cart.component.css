@@ -1,0 +1,65 @@
+/* Custom Styles */
+.container {
+  margin-top: 110px;
+  background-color: #e0e1dd; /* Light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(13, 27, 42, 0.1); /* Dark blue shadow */
+}
+
+.alert {
+  position: fixed;
+  top: 110px;
+  width: 80%;
+  left: 10%;
+  z-index: 999;
+}
+
+.table thead th {
+  background-color: #415a77; /* Dark blue background */
+  color: #e0e1dd; /* Light gray text */
+}
+
+.table tbody tr:hover {
+  background-color: rgba(119, 141, 169, 0.1); /* Light blue hover effect */
+}
+
+.quantity input {
+  width: 60px;
+  text-align: center;
+  border: 1px solid #778da9; /* Medium blue border */
+  border-radius: 5px;
+}
+
+.btn-outline-secondary {
+  border-color: #0d1b2a; /* Dark blue border */
+  color: #0d1b2a; /* Dark blue text */
+}
+
+.btn-outline-secondary:hover {
+  background-color: #0d1b2a; /* Dark blue background */
+  color: #e0e1dd; /* Light gray text */
+}
+
+.btn-danger {
+  background-color: #ff4d4d; /* Red background */
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+.btn-success {
+  background-color: #33cc33; /* Green background */
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #29a329; /* Darker green on hover */
+}
+
+.alert-success {
+  background-color: #33cc33; /* Green background */
+  color: #fff; /* White text */
+  border: none;
+}

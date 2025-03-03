@@ -1,0 +1,92 @@
+/* General Styles */
+.container {
+  margin-top: 80px;
+  background-color: #e0e1dd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(13, 27, 42, 0.15);
+}
+
+/* Alerts */
+.alert {
+  position: fixed;
+  top: 80px;
+  width: 90%;
+  left: 5%;
+  z-index: 1000;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 12px;
+  border: none;
+}
+
+.card-header {
+  background: #415a77;
+  color: #e0e1dd;
+  border-radius: 12px 12px 0 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Table */
+.table-header {
+  background-color: #415a77;
+  color: #e0e1dd;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(119, 141, 169, 0.15);
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-info {
+  background-color: #3c096c;
+  color: #fff;
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #240046;
+  color: #e0e1dd;
+}
+
+.btn-success {
+  background-color: #33cc33; /* Green background */
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #29a329; /* Darker green on hover */
+}
+
+/* Success Alert */
+.alert-primary {
+  background-color: #7b2cbf;
+  color: white;
+  border: none;
+}
+
+app-spinner {
+  margin: 0 auto;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .alert {
+    width: 95%;
+    left: 2.5%;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+}

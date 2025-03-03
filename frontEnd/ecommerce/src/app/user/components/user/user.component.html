@@ -1,0 +1,55 @@
+<div class="user-container" *ngIf="!isLoading; else loading">
+  <h2>User Profile</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="updateUserProfile()">
+    <div>
+      <label>Name</label>
+      <input type="text" formControlName="name" />
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <div>
+      <label>Phone</label>
+      <input type="text" formControlName="phone" />
+    </div>
+
+    <div>
+      <label>Shipping Address 1</label>
+      <input type="text" formControlName="shippingAddress1" />
+    </div>
+
+    <div>
+      <label>Shipping Address 2</label>
+      <input type="text" formControlName="shippingAddress2" />
+    </div>
+
+    <div>
+      <label>City</label>
+      <input type="text" formControlName="city" />
+    </div>
+
+    <div>
+      <label>ZIP</label>
+      <input type="text" formControlName="zip" />
+    </div>
+
+    <div>
+      <label>Country</label>
+      <input type="text" formControlName="country" />
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid || isUpdating">
+      {{ isUpdating ? "Updating..." : "Update Profile" }}
+    </button>
+
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  </form>
+</div>
+
+<ng-template #loading>
+  <p>Loading user data...</p>
+</ng-template>

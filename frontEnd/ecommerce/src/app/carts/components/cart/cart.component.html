@@ -1,0 +1,112 @@
+<div class="container py-4">
+  <div class="alert alert-warning mt-2" role="alert" *ngIf="warningAlert">
+    {{ warningMessage }}
+  </div>
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title text-center mb-0">Shopping Cart</h1>
+    </div>
+    <div class="card-body">
+      <!-- Cart Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <p class="lead mb-0">
+          You have
+          <span class="badge bg-danger">{{ cartProducts.length }}</span> item(s)
+          in your cart
+        </p>
+        <button
+          class="btn btn-outline-danger"
+          (click)="clearCart()"
+          *ngIf="cartProducts.length > 0"
+        >
+          <i class="fas fa-trash-alt"></i> Clear Cart
+        </button>
+      </div>
+
+      <!-- Cart Table -->
+      <div class="table-responsive">
+        <table
+          class="table table-hover align-middle"
+          *ngIf="cartProducts.length > 0"
+        >
+          <thead class="table-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col" style="width: 25%">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartProducts; let index = index">
+              <td>
+                <img
+                  [src]="apiUrl + '/uploads/' + item.item.image"
+                  alt="{{ item.item.name }}"
+                  class="img-fluid rounded"
+                  style="width: 80px; height: 80px; object-fit: cover"
+                />
+              </td>
+              <td>{{ item.item.name }}</td>
+              <td>{{ item.item.price }} L.E</td>
+              <td>
+                <div class="d-flex gap-2">
+                  <button
+                    class="btn btn-outline-secondary"
+                    (click)="minsAmount(index)"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <input
+                    class="form-control text-center"
+                    type="number"
+                    (change)="detectChange(index)"
+                    [(ngModel)]="item.quantity"
+                    min="1"
+                    style="width: 60px"
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    (click)="addAmount(index)"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </td>
+              <td>
+                {{ item.item.price * item.quantity | number : "1.2-2" }} L.E
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteProduct(index)">
+                  <i class="fas fa-trash-alt"></i> Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="table-light">
+            <tr>
+              <td colspan="4"></td>
+              <td class="fw-bold">Total: {{ total | number : "1.2-2" }} L.E</td>
+              <td>
+                <button
+                  class="btn btn-success w-100"
+                  (click)="addCart()"
+                  *ngIf="cartProducts.length > 0"
+                >
+                  <i class="fas fa-shopping-cart"></i> Order Now
+                </button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Success Message -->
+      <div class="alert alert-primary mt-4" role="alert" *ngIf="success">
+        <strong>Well done!</strong> Your Order is Successfully Sent.
+      </div>
+    </div>
+  </div>
+</div>

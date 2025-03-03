@@ -1,0 +1,93 @@
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: -24px;
+  animation: animloader 4s ease infinite;
+}
+
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: #e0e1dd; /* Light gray background */
+  box-shadow: 0 0 10px rgba(13, 27, 42, 0.15); /* Dark blue shadow */
+  animation: animloader2 2s ease infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 0 24px rgba(29, 53, 87, 0), 24px 24px rgba(29, 53, 87, 0),
+      24px 48px rgba(29, 53, 87, 0), 0px 48px rgba(29, 53, 87, 0);
+  }
+  12% {
+    box-shadow: 0 24px #415a77, 24px 24px rgba(29, 53, 87, 0),
+      24px 48px rgba(29, 53, 87, 0), 0px 48px rgba(29, 53, 87, 0);
+  }
+  25% {
+    box-shadow: 0 24px #415a77, 24px 24px #415a77, 24px 48px rgba(29, 53, 87, 0),
+      0px 48px rgba(29, 53, 87, 0);
+  }
+  37% {
+    box-shadow: 0 24px #415a77, 24px 24px #415a77, 24px 48px #415a77,
+      0px 48px rgba(29, 53, 87, 0);
+  }
+  50% {
+    box-shadow: 0 24px #415a77, 24px 24px #415a77, 24px 48px #415a77,
+      0px 48px #415a77;
+  }
+  62% {
+    box-shadow: 0 24px rgba(29, 53, 87, 0), 24px 24px #415a77, 24px 48px #415a77,
+      0px 48px #415a77;
+  }
+  75% {
+    box-shadow: 0 24px rgba(29, 53, 87, 0), 24px 24px rgba(29, 53, 87, 0),
+      24px 48px #415a77, 0px 48px #415a77;
+  }
+  87% {
+    box-shadow: 0 24px rgba(29, 53, 87, 0), 24px 24px rgba(29, 53, 87, 0),
+      24px 48px rgba(29, 53, 87, 0), 0px 48px #415a77;
+  }
+  100% {
+    box-shadow: 0 24px rgba(29, 53, 87, 0), 24px 24px rgba(29, 53, 87, 0),
+      24px 48px rgba(29, 53, 87, 0), 0px 48px rgba(29, 53, 87, 0);
+  }
+}
+
+@keyframes animloader2 {
+  0% {
+    transform: translate(0, 0) rotateX(0) rotateY(0);
+    background: #e0e1dd; /* Light gray */
+  }
+  25% {
+    transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+    background: #778da9; /* Medium blue */
+  }
+  50% {
+    transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+    background: #415a77; /* Dark blue */
+  }
+  75% {
+    transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+    background: #1b263b; /* Darker blue */
+  }
+  100% {
+    transform: translate(0, 0) rotateX(0) rotateY(360deg);
+    background: #0d1b2a; /* Darkest blue */
+  }
+}

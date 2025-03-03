@@ -1,0 +1,25 @@
+<div class="featured-products container mt-4">
+  <h2 class="section-title">المنتجات المميزة</h2>
+  <div class="row">
+    <div
+      class="col-md-4 d-flex align-items-stretch"
+      *ngFor="let product of products"
+    >
+      <div class="card mb-4 product-card">
+        <img [src]="product.image" class="card-img-top" [alt]="product.title" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">
+            <strong>السعر: ${{ product.price }}</strong>
+          </p>
+          <p class="card-text">
+            التقييم: {{ product.rating.rate }} ({{ product.rating.count }}
+            مراجعة)
+          </p>
+          <a href="#" class="btn btn-primary mt-auto">عرض المنتج</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

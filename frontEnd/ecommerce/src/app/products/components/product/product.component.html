@@ -1,0 +1,36 @@
+<div class="item">
+  <div class="router-div" routerLink="/details/{{ product.id }}">
+    <!-- Use the product's image URL from the API -->
+    <img
+      [src]="apiUrl + '/uploads/' + product.image"
+      alt="{{ product.name }}"
+      class="product-image"
+    />
+    <div class="body">
+      <h4 class="product-title">{{ product.name }}</h4>
+      <p class="product-description">{{ product.description }}</p>
+    </div>
+    <ngb-alert [dismissible]="false" *ngIf="warningAlert">
+      <strong>Warning!</strong> {{ warningMessage }}
+    </ngb-alert>
+    <div class="alert alert-primary" role="alert" *ngIf="successAlert">
+      Added!
+    </div>
+  </div>
+  <div class="product-footer d-flex justify-content-between align-items-center">
+    <button class="btn btn-add-to-cart" *ngIf="!addBtn" (click)="addBtn = true">
+      Add To Cart
+    </button>
+    <div class="d-flex w-50 gap-2" *ngIf="addBtn">
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="quantity"
+        min="1"
+        [max]="product.countInStock"
+      />
+      <button class="btn btn-danger" (click)="addToCartBtn()">Add</button>
+    </div>
+    <span class="product-price">{{ product.price }} L.E</span>
+  </div>
+</div>
